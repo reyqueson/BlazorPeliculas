@@ -16,7 +16,8 @@ builder.Services.AddRazorPages();
 builder.Services.AddDbContext<ApplicationDbContext>(opciones => 
     opciones.UseSqlServer("name=DefaultConnection"));
 
-builder.Services.AddTransient<IAlmacenadorArchivos, AlmacenadorArchivosAzStorage>();
+builder.Services.AddTransient<IAlmacenadorArchivos, AlmacenadorArchivosLocal>();
+builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddAutoMapper(typeof(Program));
 
